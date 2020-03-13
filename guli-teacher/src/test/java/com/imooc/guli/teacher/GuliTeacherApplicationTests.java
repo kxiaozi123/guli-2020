@@ -9,11 +9,18 @@ import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.imooc.guli.teacher.service.EduTeacherService;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
+@RunWith(SpringRunner.class)
 public class GuliTeacherApplicationTests {
+    @Autowired
+    private EduTeacherService teacherService;
 
     @Test
     public void contextLoads() {
@@ -66,6 +73,11 @@ public class GuliTeacherApplicationTests {
         mpg.setStrategy(strategy);
         // 6、执行
         mpg.execute();
+    }
+    @Test
+    public void deleteById()
+    {
+        teacherService.removeById("8");
     }
 
 }
